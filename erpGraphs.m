@@ -56,11 +56,11 @@ S24E1 = xlsread('HOR31-c.xlsx', 'HOR31-c');
 S24E2 = xlsread('HOR31-m.xlsx', 'HOR31-m');
 S25E1 = xlsread('HOR32.xlsx', 'HOR32');
 
-%% Section 1
+%% Section 2
 
-% Create ERP graphs for all IPc subjects in Exp-1 of Afzali et al. 2022
+% Create ERP graphs for all IPc subjects in Exp-1 of Afzali et al. 2023
 
-ipc2022Exp1 = {'S01E1','S03E1','S05E1',      ...
+ipc2023Exp1 = {'S01E1','S03E1','S05E1',      ...
      'S07E1', 'S09E1', ...
      'S11E1', 'S14E1', ...
      'S16E1', ...
@@ -71,15 +71,15 @@ ipc2022Exp1 = {'S01E1','S03E1','S05E1',      ...
      'S34E1'};
 
 % Create subfolder for plots if not available already
-outdir = 'ipc2022Exp1Plots';
+outdir = 'ipc2023Exp1Plots';
 if ~exist(outdir,'dir')
     mkdir(outdir);
 end
 
 % Write one plot each
-for iplotdat = 1:length(ipc2022Exp1)
+for iplotdat = 1:length(ipc2023Exp1)
 %if false
-    cursbj_str = ipc2022Exp1{iplotdat};
+    cursbj_str = ipc2023Exp1{iplotdat};
     curplotdat = eval(cursbj_str);
     
     irrelevant_PD = curplotdat (1,:);
@@ -97,7 +97,7 @@ for iplotdat = 1:length(ipc2022Exp1)
     title([cursbj_str]);
     legend('Irrelevant', 'Target', 'Probe');
     
-    saveas(gcf, ['ipc2022Exp1Plots/' cursbj_str '.png']);
+    saveas(gcf, ['ipc2023Exp1Plots/' cursbj_str '.png']);
     
 end
 
@@ -105,9 +105,9 @@ end
 % Write 4x5 grid plot
 figure(2)
 hold off
-for iplotdat = 1:length(ipc2022Exp1)
+for iplotdat = 1:length(ipc2023Exp1)
     subplot(4,5,iplotdat)
-    cursbj_str = ipc2022Exp1{iplotdat};
+    cursbj_str = ipc2023Exp1{iplotdat};
     curplotdat = eval(cursbj_str);
     
     irrelevant_PD = curplotdat (1,:);
@@ -135,13 +135,13 @@ plot(3);
 set(gca,'Visible','off');
 legend('Irrelevant', 'Target', 'Probe', 'Location', 'bestoutside');
     
-saveas(gcf,'ipc2022Exp1Plots/ipc2022Exp1.png');
+saveas(gcf,'ipc2023Exp1Plots/ipc2023Exp1.png');
 
-%% Section 2
+%% Section 3
 
-% Create ERP graphs for all IPc subjects in Exp-2 of Afzali et al. 2022
+% Create ERP graphs for all IPc subjects in Exp-2 of Afzali et al. 2023
 
-ipc2022Exp2 = {'S01E2', ...
+ipc2023Exp2 = {'S01E2', ...
      'S03E2','S05E2',      ...
      'S07E2', 'S09E2' ...
      'S11E2', ...
@@ -153,15 +153,15 @@ ipc2022Exp2 = {'S01E2', ...
      'S34E2'};
 
 % Create subfolder for plots if not available already
-outdir = 'ipc2022Exp2Plots';
+outdir = 'ipc2023Exp2Plots';
 if ~exist(outdir,'dir')
     mkdir(outdir);
 end
 
 % Write one plot each
-for iplotdat = 1:length(ipc2022Exp2)
+for iplotdat = 1:length(ipc2023Exp2)
 %if false
-    cursbj_str = ipc2022Exp2{iplotdat};
+    cursbj_str = ipc2023Exp2{iplotdat};
     curplotdat = eval(cursbj_str);
     
     irrelevant_PD = curplotdat (1,:);
@@ -179,7 +179,7 @@ for iplotdat = 1:length(ipc2022Exp2)
     title([cursbj_str]);
     legend('Irrelevant', 'Target', 'Probe');
     
-    saveas(gcf, ['ipc2022Exp2Plots/' cursbj_str '.png']);
+    saveas(gcf, ['ipc2023Exp2Plots/' cursbj_str '.png']);
     
 end
 
@@ -187,9 +187,9 @@ end
 % Write 4x5 grid plot
 figure(2)
 hold off
-for iplotdat = 1:length(ipc2022Exp2)
+for iplotdat = 1:length(ipc2023Exp2)
     subplot(4,5,iplotdat)
-    cursbj_str = ipc2022Exp2{iplotdat};
+    cursbj_str = ipc2023Exp2{iplotdat};
     curplotdat = eval(cursbj_str);
     
     irrelevant_PD = curplotdat (1,:);
@@ -216,7 +216,7 @@ plot(3);
 set(gca,'Visible','off');
 legend('Irrelevant', 'Target', 'Probe', 'Location', 'bestoutside');
     
-saveas(gcf,'ipc2022Exp2Plots/ipc2022Exp2.png');
+saveas(gcf,'ipc2023Exp2Plots/ipc2023Exp2.png');
 
 
 %% Section 4
