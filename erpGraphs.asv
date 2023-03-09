@@ -4,6 +4,8 @@
 % The code is developed by Usman Afzali (https://github.com/usman-afzali) with help from Dr Roland Pfister
 % (http://roland-pfister.net)
 
+% 
+
 % Read all ERP data from xls.x files to MATLAB.
 
 % Reading ERP data for Afzali et al. (2022)
@@ -120,9 +122,9 @@ end
 % Write 4x4 grid plot
 figure(2)
 hold off
-for iplotdat = 1:length(ipc2023Exp1)
+for iplotdat = 1:length(allSubjects2022)
     subplot(4,4,iplotdat)
-    cursbj_str = ipc2023Exp1{iplotdat};
+    cursbj_str = allSubjects2022{iplotdat};
     curplotdat = eval(cursbj_str);
     
     irrelevant_PD = curplotdat (1,:);
@@ -150,7 +152,7 @@ plot(3);
 set(gca,'Visible','off');
 legend('Irrelevant', 'Target', 'Probe', 'Location', 'bestoutside');
     
-saveas(gcf,'ipc2023Exp1Plots/ipc2023Exp1.png');
+saveas(gcf,'allSubjects2022Plots/allSubjects2022.png');
 
 
 %% Section 2
@@ -218,8 +220,7 @@ for iplotdat = 1:length(ipc2023Exp1)
     plot(probe_PD);
     
     title(cursbj_str);
-    %ylim ([-10,20]); %We'd use this and turn the `if` statment off in the
-    %previous command if we wanted to keep the same ylim for all ERPs.
+    %ylim ([-10,20]);
     
 end
 
@@ -396,5 +397,3 @@ legend('Irrelevant', 'Target', 'Probe', 'Location', 'bestoutside');
 saveas(gcf,'iac2023Exp1Plots/iac2023Exp1.png');
 
 % THE END.
-
-

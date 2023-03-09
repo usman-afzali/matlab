@@ -4,6 +4,8 @@
 % The code is developed by Usman Afzali (https://github.com/usman-afzali) with help from Dr Roland Pfister
 % (http://roland-pfister.net)
 
+% Date 10 March 2023
+
 % Read all ERP data from xls.x files to MATLAB.
 
 % Reading ERP data for Afzali et al. (2022)
@@ -395,5 +397,3 @@ legend('Irrelevant', 'Target', 'Probe', 'Location', 'bestoutside');
 saveas(gcf,'iac2023Exp1Plots/iac2023Exp1.png');
 
 % THE END.
-
-
