@@ -1,7 +1,7 @@
-%MATLAB Code for ERP graphs published in https://doi.org/10.1111/psyp.14110 ...
-% and https://doi.org/10.1002/acp.4050
+%MATLAB Code for ERP graphs published in Afzali et al. (2022) (https://doi.org/10.1111/psyp.14110) ...
+% and Afzali et al. (2023) (https://doi.org/10.1002/acp.4050).
 
-% STEP 1: Read all ERP data from xls.x files to MATLAB.
+% Read all ERP data from xls.x files to MATLAB.
 
 % Reading ERP data for Afzali et al. (2022)
 
@@ -53,7 +53,9 @@ S24E1 = xlsread('HOR31-c.xlsx', 'HOR31-c');
 S24E2 = xlsread('HOR31-m.xlsx', 'HOR31-m');
 S25E1 = xlsread('HOR32.xlsx', 'HOR32');
 
-% Create ERP graphs for all IPc subjects in Exp-1
+%% Section 1
+
+% Create ERP graphs for all IPc subjects in Exp-1 of Afzali et al. 2022
 
 ipc2022Exp1 = {'S01E1','S03E1','S05E1',      ...
      'S07E1', 'S09E1', ...
@@ -97,11 +99,11 @@ for iplotdat = 1:length(ipc2022Exp1)
 end
 
 
-% Write 4x4 grid plot
+% Write 4x5 grid plot
 figure(2)
 hold off
 for iplotdat = 1:length(ipc2022Exp1)
-    subplot(4,4,iplotdat)
+    subplot(4,5,iplotdat)
     cursbj_str = ipc2022Exp1{iplotdat};
     curplotdat = eval(cursbj_str);
     
@@ -122,7 +124,7 @@ for iplotdat = 1:length(ipc2022Exp1)
 end
 
 % Add legend
-subplot(4,5,16)
+subplot(4,4,16)
 plot(1);
 hold on;
 plot(2);
@@ -132,5 +134,165 @@ legend('Irrelevant', 'Target', 'Probe', 'Location', 'bestoutside');
     
 saveas(gcf,'ipc2022Exp1Plots/ipc2022Exp1.png');
 
+%% Section 2
+
+% Create ERP graphs for all IPc subjects in Exp-2 of Afzali et al. 2022
+
+ipc2022Exp2 = {'S01E2', ...
+     'S03E2','S05E2',      ...
+     'S07E2', 'S09E2' ...
+     'S11E2', ...
+     'S14E2', 'S16E2', ...
+     'S18E2', 'S20E2', ...
+     'S22E2', ...
+     'S24E2', 'S26E2', ...
+     'S29E2', 'S31E2', ...
+     'S34E2'};
+
+% Create subfolder for plots if not available already
+outdir = 'ipc2022Exp2Plots';
+if ~exist(outdir,'dir')
+    mkdir(outdir);
+end
+
+% Write one plot each
+for iplotdat = 1:length(ipc2022Exp2)
+%if false
+    cursbj_str = ipc2022Exp2{iplotdat};
+    curplotdat = eval(cursbj_str);
+    
+    irrelevant_PD = curplotdat (1,:);
+    target_PD = curplotdat (2, :);
+    probe_PD = curplotdat (3, :);
+    
+    figure(1);
+    subplot(1,1,1);
+    hold off
+    plot (irrelevant_PD);
+    hold on
+    plot (target_PD);
+    plot(probe_PD);
+    
+    title([cursbj_str]);
+    legend('Irrelevant', 'Target', 'Probe');
+    
+    saveas(gcf, ['ipc2022Exp2Plots/' cursbj_str '.png']);
+    
+end
+
+
+% Write 4x5 grid plot
+figure(2)
+hold off
+for iplotdat = 1:length(ipc2022Exp2)
+    subplot(4,5,iplotdat)
+    cursbj_str = ipc2022Exp2{iplotdat};
+    curplotdat = eval(cursbj_str);
+    
+    irrelevant_PD = curplotdat (1,:);
+    target_PD = curplotdat (2, :);
+    probe_PD = curplotdat (3, :);
+    
+    hold off
+    plot (irrelevant_PD);
+    hold on
+    plot (target_PD);
+    plot(probe_PD);
+    
+    title(cursbj_str);
+    %ylim ([-10,20]);
+    
+end
+
+% Add legend
+subplot(4,4,16)
+plot(1);
+hold on;
+plot(2);
+plot(3);
+set(gca,'Visible','off');
+legend('Irrelevant', 'Target', 'Probe', 'Location', 'bestoutside');
+    
+saveas(gcf,'ipc2022Exp2Plots/ipc2022Exp2.png');
+
+
+%% Section 3
+
+% Create ERP graphs for all IAc subjects in Exp-1 of Afzali et al. 2022
+
+iac2022Exp1 = {'S02E1', ...
+     'S04E1', 'S06E1',      ...
+     'S08E1', ...
+     'S10E1', 'S13E1', 'S15E1', 'S17E1', ...
+     'S19E1', ...
+     'S21E1', 'S23E1', ...
+     'S25E1', 'S30E1', 'S33E1', ...
+     'S36E1'};
+
+% Create subfolder for plots if not available already
+outdir = 'iac2022Exp1Plots';
+if ~exist(outdir,'dir')
+    mkdir(outdir);
+end
+
+% Write one plot each
+for iplotdat = 1:length(iac2022Exp1)
+%if false
+    cursbj_str = iac2022Exp1{iplotdat};
+    curplotdat = eval(cursbj_str);
+    
+    irrelevant_PD = curplotdat (1,:);
+    target_PD = curplotdat (2, :);
+    probe_PD = curplotdat (3, :);
+    
+    figure(1);
+    subplot(1,1,1);
+    hold off
+    plot (irrelevant_PD);
+    hold on
+    plot (target_PD);
+    plot(probe_PD);
+    
+    title([cursbj_str]);
+    legend('Irrelevant', 'Target', 'Probe');
+    
+    saveas(gcf, ['iac2022Exp1Plots/' cursbj_str '.png']);
+    
+end
+
+
+% Write 4x5 grid plot
+figure(2)
+hold off
+for iplotdat = 1:length(iac2022Exp1)
+    subplot(4,5,iplotdat)
+    cursbj_str = iac2022Exp1{iplotdat};
+    curplotdat = eval(cursbj_str);
+    
+    irrelevant_PD = curplotdat (1,:);
+    target_PD = curplotdat (2, :);
+    probe_PD = curplotdat (3, :);
+    
+    hold off
+    plot (irrelevant_PD);
+    hold on
+    plot (target_PD);
+    plot(probe_PD);
+    
+    title(cursbj_str);
+    %ylim ([-10,20]);
+    
+end
+
+% Add legend
+subplot(4,4,16)
+plot(1);
+hold on;
+plot(2);
+plot(3);
+set(gca,'Visible','off');
+legend('Irrelevant', 'Target', 'Probe', 'Location', 'bestoutside');
+    
+saveas(gcf,'iac2022Exp1Plots/iac2022Exp1.png');
 
 
