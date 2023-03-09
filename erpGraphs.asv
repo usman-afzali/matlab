@@ -55,7 +55,7 @@ S25E1 = xlsread('HOR32.xlsx', 'HOR32');
 
 % Create ERP graphs for all IPc subjects in Exp-1
 
-ipc2022Exp1 = {'S01E1','S03E1','S05E1',      ...
+ipcSubjectsExp1 = {'S01E1','S03E1','S05E1',      ...
      'S07E1', 'S09E1', ...
      'S11E1', 'S14E1', ...
      'S16E1', ...
@@ -66,15 +66,15 @@ ipc2022Exp1 = {'S01E1','S03E1','S05E1',      ...
      'S34E1'};
 
 % Create subfolder for plots if not available already
-outdir = 'ipc2022Exp1Plots';
+outdir = 'Plots2';
 if ~exist(outdir,'dir')
     mkdir(outdir);
 end
 
 % Write one plot each
-for iplotdat = 1:length(ipc2022Exp1)
+for iplotdat = 1:length(allthepeople)
 %if false
-    cursbj_str = ipc2022Exp1{iplotdat};
+    cursbj_str = allthepeople{iplotdat};
     curplotdat = eval(cursbj_str);
     
     irrelevant_PD = curplotdat (1,:);
@@ -92,7 +92,7 @@ for iplotdat = 1:length(ipc2022Exp1)
     title([cursbj_str]);
     legend('Irrelevant', 'Target', 'Probe');
     
-    saveas(gcf, ['ipc2022Exp1Plots/' cursbj_str '.png']);
+    saveas(gcf, ['Plots2/' cursbj_str '.png']);
     
 end
 
@@ -100,9 +100,9 @@ end
 % Write 4x4 grid plot
 figure(2)
 hold off
-for iplotdat = 1:length(ipc2022Exp1)
+for iplotdat = 1:length(allthepeople)
     subplot(4,4,iplotdat)
-    cursbj_str = ipc2022Exp1{iplotdat};
+    cursbj_str = allthepeople{iplotdat};
     curplotdat = eval(cursbj_str);
     
     irrelevant_PD = curplotdat (1,:);
@@ -116,13 +116,12 @@ for iplotdat = 1:length(ipc2022Exp1)
     plot(probe_PD);
     
     title(cursbj_str);
-    %ylim ([-10,20]); %We'd use this and turn the `if` statment off in the
-    %previous command if we wanted to keep the same ylim for all ERPs.
+    %ylim ([-10,20]);
     
 end
 
 % Add legend
-subplot(4,5,16)
+subplot(4,4,16)
 plot(1);
 hold on;
 plot(2);
@@ -130,7 +129,7 @@ plot(3);
 set(gca,'Visible','off');
 legend('Irrelevant', 'Target', 'Probe', 'Location', 'bestoutside');
     
-saveas(gcf,'ipc2022Exp1Plots/ipc2022Exp1.png');
+saveas(gcf,'Plots2/AllThePeople.png');
 
 
 
