@@ -120,9 +120,9 @@ end
 % Write 4x4 grid plot
 figure(2)
 hold off
-for iplotdat = 1:length(allSubjects2022)
+for iplotdat = 1:length(ipc2023Exp1)
     subplot(4,4,iplotdat)
-    cursbj_str = allSubjects2022{iplotdat};
+    cursbj_str = ipc2023Exp1{iplotdat};
     curplotdat = eval(cursbj_str);
     
     irrelevant_PD = curplotdat (1,:);
@@ -150,7 +150,7 @@ plot(3);
 set(gca,'Visible','off');
 legend('Irrelevant', 'Target', 'Probe', 'Location', 'bestoutside');
     
-saveas(gcf,'allSubjects2022Plots/allSubjects2022.png');
+saveas(gcf,'ipc2023Exp1Plots/ipc2023Exp1.png');
 
 
 %% Section 2
@@ -218,7 +218,8 @@ for iplotdat = 1:length(ipc2023Exp1)
     plot(probe_PD);
     
     title(cursbj_str);
-    %ylim ([-10,20]);
+    %ylim ([-10,20]); %We'd use this and turn the `if` statment off in the
+    %previous command if we wanted to keep the same ylim for all ERPs.
     
 end
 
