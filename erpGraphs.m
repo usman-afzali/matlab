@@ -1,5 +1,8 @@
+
 %MATLAB Code for ERP graphs published in Afzali et al. (2022) (https://doi.org/10.1111/psyp.14110) ...
 % and Afzali et al. (2023) (https://doi.org/10.1002/acp.4050).
+% The code is developed by Usman Afzali (https://github.com/usman-afzali) with help from Dr Roland Pfister
+% (http://roland-pfister.net)
 
 % Read all ERP data from xls.x files to MATLAB.
 
@@ -216,11 +219,11 @@ legend('Irrelevant', 'Target', 'Probe', 'Location', 'bestoutside');
 saveas(gcf,'ipc2022Exp2Plots/ipc2022Exp2.png');
 
 
-%% Section 3
+%% Section 4
 
-% Create ERP graphs for all IAc subjects in Exp-1 of Afzali et al. 2022
+% Create ERP graphs for all IAc subjects in Exp-1 of Afzali et al. 2023
 
-iac2022Exp1 = {'S02E1', ...
+iac2023Exp1 = {'S02E1', ...
      'S04E1', 'S06E1',      ...
      'S08E1', ...
      'S10E1', 'S13E1', 'S15E1', 'S17E1', ...
@@ -230,15 +233,15 @@ iac2022Exp1 = {'S02E1', ...
      'S36E1'};
 
 % Create subfolder for plots if not available already
-outdir = 'iac2022Exp1Plots';
+outdir = 'iac2023Exp1Plots';
 if ~exist(outdir,'dir')
     mkdir(outdir);
 end
 
 % Write one plot each
-for iplotdat = 1:length(iac2022Exp1)
+for iplotdat = 1:length(iac2023Exp1)
 %if false
-    cursbj_str = iac2022Exp1{iplotdat};
+    cursbj_str = iac2023Exp1{iplotdat};
     curplotdat = eval(cursbj_str);
     
     irrelevant_PD = curplotdat (1,:);
@@ -256,7 +259,7 @@ for iplotdat = 1:length(iac2022Exp1)
     title([cursbj_str]);
     legend('Irrelevant', 'Target', 'Probe');
     
-    saveas(gcf, ['iac2022Exp1Plots/' cursbj_str '.png']);
+    saveas(gcf, ['iac2023Exp1Plots/' cursbj_str '.png']);
     
 end
 
@@ -264,9 +267,9 @@ end
 % Write 4x5 grid plot
 figure(2)
 hold off
-for iplotdat = 1:length(iac2022Exp1)
+for iplotdat = 1:length(iac2023Exp1)
     subplot(4,5,iplotdat)
-    cursbj_str = iac2022Exp1{iplotdat};
+    cursbj_str = iac2023Exp1{iplotdat};
     curplotdat = eval(cursbj_str);
     
     irrelevant_PD = curplotdat (1,:);
@@ -293,6 +296,8 @@ plot(3);
 set(gca,'Visible','off');
 legend('Irrelevant', 'Target', 'Probe', 'Location', 'bestoutside');
     
-saveas(gcf,'iac2022Exp1Plots/iac2022Exp1.png');
+saveas(gcf,'iac2023Exp1Plots/iac2023Exp1.png');
+
+% THE END.
 
 
