@@ -362,11 +362,11 @@ for iplotdat = 1:length(iac2023Exp1)
 end
 
 
-% Write 4x5 grid plot
+% Write 4x4 grid plot
 figure(2)
 hold off
 for iplotdat = 1:length(iac2023Exp1)
-    subplot(4,5,iplotdat)
+    subplot(4,4,iplotdat)
     cursbj_str = iac2023Exp1{iplotdat};
     curplotdat = eval(cursbj_str);
     
