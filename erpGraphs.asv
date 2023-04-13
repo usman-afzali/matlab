@@ -443,11 +443,11 @@ for iplotdat = 1:length(allSubjects2022b)
 end
 
 
-% Write 5x4 grid plot
+% Write 4x4 grid plot
 figure(2)
 hold off
 for iplotdat = 1:length(allSubjects2022b)
-    subplot(5,4,iplotdat)
+    subplot(4,4,iplotdat)
     cursbj_str = allSubjects2022b{iplotdat};
     curplotdat = eval(cursbj_str);
     
@@ -468,7 +468,7 @@ for iplotdat = 1:length(allSubjects2022b)
 end
 
 % Add legend
-subplot(5,4,20)
+subplot(4,4,16)
 plot(1);
 hold on;
 plot(2);
@@ -476,7 +476,7 @@ plot(3);
 set(gca,'Visible','off');
 legend('Irrelevant', 'Target', 'Probe', 'Location', 'bestoutside');
     
-saveas(gcf,'allSubjects2022Plots2/allSubjects2022b.png');
+saveas(gcf,'allSubjects2022Plots-/allSubjects2022-2.png');
 
 
 
